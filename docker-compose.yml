@@ -1,0 +1,26 @@
+version: "3"
+services:
+  express:
+    container_name: nginx_proxy_example
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - VIRTUAL_HOST=example.local
+    expose:
+      - 3000
+    links:
+      - mongodb
+    networks:
+      - ispaceo
+      - internal
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    networks:
+      - internal
+networks:
+  ispaceo:
+    external: true
+  internal:
+    driver: bridge
