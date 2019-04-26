@@ -9,7 +9,7 @@ https://github.com/jwilder/nginx-proxy
 1. Create a network for nginx-proxy and other containers
 
 ```bash
-d network create -d bridge <network-name>
+docker network create -d bridge <network-name>
 ```
 
 2. Create nginx-proxy container
